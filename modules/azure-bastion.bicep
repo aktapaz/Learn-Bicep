@@ -13,13 +13,13 @@ param bastionSubnetIpPrefix string = '10.1.1.0/27'
 param bastionHostName string
 
 @description('Azure region to deploy all resources')
-@allowed([
-  'eastus'
-  'eastus2'
-  'westus'
-  'westus2'
-])
-param location string
+//@allowed([
+  //'eastus'
+  //'eastus2'
+  //'westus'
+  //'westus2'
+//])
+param location string = resourceGroup().location
 
 resource publicIp 'Microsoft.Network/publicIPAddresses@2020-06-01' = {
   name: '${bastionHostName}-pip'
